@@ -1,0 +1,4 @@
+import {api} from '../api.js';import {useData,State,needsReview} from '../ui.jsx';import {useProject} from '../App.jsx';
+export default function Dashboard(){const p=useProject();const s=useData(()=>Promise.all([api.documents(p),api.events(p)]),[p]);
+const[docs,ev]=s.data||[[],[]];const stats=[['Documents',docs.length],['Events',ev.length],['Features',new Set(ev.map(e=>e.feature)).size],['Pending reviews',ev.filter(needsReview).length],['Conflicts',ev.filter(e=>e.status==='CONFLICT').length]];
+return<div className="p-6"><h1 className="mb-4 text-2xl font-bold">Project overview</h1><State s={s}><div className="grid grid-cols-2 gap-4 lg:grid-cols-5">{stats.map(([l,n])=><div key={l} className="rounded border border-line bg-white p-4"><p className="text-3xl font-bold">{n}</p><p className="text-sm text-slate-600">{l}</p></div>)}</div></State></div>;}

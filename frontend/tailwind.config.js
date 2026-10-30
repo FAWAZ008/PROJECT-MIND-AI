@@ -1,0 +1,1 @@
+export default {content:['./index.html','./src/**/*.{js,jsx}'],theme:{extend:{fontFamily:{sans:['"Public Sans"','system-ui','sans-serif'],mono:['"JetBrains Mono"','monospace']},colors:{ink:'#16212c',mist:'#eef1f4',line:'#d5dbe2',pine:'#0f5f57'}}}};
