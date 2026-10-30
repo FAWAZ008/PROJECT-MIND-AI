@@ -9,3 +9,5 @@ __pycache__/
 *.sqlite
 dist/
 .DS_Store
+*.db-wal
+*.db-shm
